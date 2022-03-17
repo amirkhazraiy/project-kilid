@@ -1,0 +1,33 @@
+<div class="header">
+  <div>
+    <label for="Property">نوع ملک:</label>
+    <select class="select" id="Property" [(ngModel)]="typeSelected" (ngModelChange)="filterType()">
+      <option *ngFor="let item of typeOption" [value]="item.key">{{item.title}}</option>
+    </select>
+    <label for="city">شهر:</label>
+    <select class="select" id="city">
+      <option value="city" selected>{{cityTitle.titleFa}}</option>
+    </select>
+  </div>
+
+
+</div>
+<div class="body">
+  <div class="cart" *ngFor="let item of dataList">
+    <div>
+      <img class="img" src="{{item.image?.url}}">
+    </div>
+    <h4 class="detail"> {{item?.title}}</h4>
+    <div class="detail-home">
+      <span>متراژ: &nbsp;{{item?.floorArea}}</span>
+      <span> نوع ملک: &nbsp;{{item?.landuseType}}</span>
+      <span> اتاق:&nbsp;{{item?.noBeds}}</span>
+    </div>
+    <div class="detail">
+      <span>موقعیت:&nbsp;{{item.location?.sector.name}}</span>
+      <span>قیمت:&nbsp;{{item.price ? item.price : "قیمت توافقی"}}</span>
+    </div>
+
+  </div>
+</div>
+
